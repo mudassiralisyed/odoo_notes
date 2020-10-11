@@ -1,0 +1,96 @@
+our virtual env config with flectra
+src/flectra/flectra-bin -sc env/env_learning/config/config.cfg
+
+TO CREATE A MODULE USING SCAFFOLD COMMAND
+src/flectra/flectra-bin scaffold MODULE_NAME env/env_learning/addons
+
+to on a debuger mode in webview 
+http://localhost:8069/web?debug=#menu_id=102&action=94
+..................................
+The __manifest__.py file is the module manifest. It contains a Python dictionary
+with information about the module, the modules it depends on, and the data
+files that it will load.
+..................................
+The module directory must be Python-importable, so it also needs to have an
+__init__.py file, even if it’s empty. To load a module, the Odoo server will
+import it. This will cause the code in the __init__.py file to be executed, so it
+works as an entry point to run the module Python code. Due to this, it will
+usually contain import statements to load the module Python files and
+submodules.
+Known modules can be installed directly from the command line using the --
+init or
+-i option. This list is initially set when you create a new database, from the
+modules found on the addons path provided at that time. It can be updated in 
+an existing database with the Update Module List menu.
+.........................................................................................
+ls-> using ls in terminal this will show the list of items in current folder or place
+..............
+cd-> using cd command in terminal we can change the directory or go into another folder
+...................
+mkdir-> by mkdir we can make new folder or directory
+...............
+for opening a file through terminal
+xdg-open file.extenison
+........................................................................
+MODEL ATTRIBUTE 
+_rec_name
+The default implementation of name_get() uses the _rec_name attribute to find
+which field holds the data; that should use to generate the display name. For
+more sophisticated representations, we can override its logic. The method
+must return a list of tuples with two elements: the ID of the record and the
+Unicode string representation for the record.
+For example, to have the title and its release date in the representation, such
+as Moby Dick (1851-10-18), we can define the following:
+
+def name_get(self):
+  result = []
+  for record in self:
+  result.append((record.id,"%s (%s)" % (record.name, record.date_release)))
+  return result
+................................................................................
+data feilds important cookebook 232
+..........................................................................
+many2one and one2many 
+The Many2one
+relation adds a field to reference the parent record. For faster child record
+discovery, this field is indexed in the database using the index=True parameter.
+The parent_id field must have ondelete set to either 'cascade' or 'restrict' .
+At this point, we have all that is required to have a hierarchic structure, but
+there are a few more additions we can make to enhance it.
+The One2many relation does not add any additional fields to the database, but
+provides a shortcut to access all the records with this record as their parent.
+..............................................................................
+@api.constrains
+In the second step, we added a method to perform Python code validation. It
+is decorated with @api.constrains , meaning that it should be executed to run
+checks when one of the fields in the argument list is changed. If the check
+fails, a ValidationError exception will be raised
+............................................
+@api.depends
+So, it needs to know what other fields it depends on, using the
+@depends decorator to detect when its cached values should be invalidated and
+recalculated
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

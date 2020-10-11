@@ -1,0 +1,36 @@
+The group feature will automatically sum up the ages which doesn't make sense in this example, here is quick way to remove the sum in the group age field:
+@api.model
+    def read_group(self, domain, fields, groupby, offset=0, limit=None, orderby=False, lazy=True):
+        if 'gender' in groupby:
+            fields.remove('patient_age')
+        return super(HospitalPatient, self).read_group(domain, fields, groupby, offset=offset, limit=limit, orderby=orderby)
+This method need to be added to the patient model, and HospitalPatient is the name of the class.
+........................................................................................................
+
+how to retrieve the data from a database record and display it in a field ?
+
+Inside the compute function you can apply the logic to fetch value from the database and assign it to a field.. Suppose if you need to get partner record, IE, of table res.partner with ID 9 , you can search in db like this, self.env['res.partner'].search([('partner_id', '=', 9)])
+.......................................................................................
+fetching the value from dict
+
+# First fetch the dictionary with key-value pair that was defined in your field
+kay_val_dict = dict(self._fields['type'].selection) # here 'type' is field name
+
+# Now iterate loop for all pair of key-val and based on that you can set label
+for key, val in kay_val_dict.items():
+    if key == 'service':
+        # Do your code
+        Label = value
+        print("LABEL = ", Label)
+/////////////////////////////////////////////////////////////
+               URL
+for going on next form using button in odoo type(action,object)
+https://www.odoo.com/es_ES/forum/ayuda-1/question/how-to-open-a-new-form-when-i-click-in-a-button-66751
+......................................................................................................
+
+GROUPS makes the field available only to some security groups. It is a
+string containing a comma-separated list of XML IDs for security
+groups. This is addressed in more detail in Chapter 11 , Access Security.
+...........................................................................
+........................reports.......
+for genrating reports we can

@@ -1,0 +1,75 @@
+singelten error:
+if we want to show the multiple records of computed field in tree view form we can get error of singelten error 
+to over come this error we can apply the loop in the function so we can access multiple record in tree view form one by one of related record 
+.............................................................................................................................................
+i have added depends in my minifest
+'depends': ['base','mail']
+but i am getting key error
+return self.models[model_name]
+KeyError: 'task'
+............................
+_rec_name for representing id as patient name or to given value
+ and name variable is alternate of _rec_name
+for that we have to make xml field in form view
+...............................
+in xml data field we write noupdate =1 
+because when you don't want execute that specific xml file on upgradation of module or installation of module
+you write <data noupdate = 1>
+.....................................
+track_visibility = 'always'
+it can help to track the changes in the fields that can be viwed in chatter box 
+changes can be made by other user
+.......................................
+related field
+we can add related by using relational field in a model
+in appointment model we created relational field of many2one with patient model and we make patient_age field to related field
+with the patitent id field it will show the age auto with corrosponding data/name
+............................
+many2one
+many2one field return the id of record so if we are settting the default value for many2one then we hava to return the
+id which is an integer value
+...........
+super key word in odoo is used to overriding  the cretae method
+ def create(self,vals):
+   result = super(model_name,self).create(vals)
+   return result
+...........................................
+searching by group 
+when we make groups in searching if there is any integer value coloumn it will sum up all the values in tree view
+for rid of this we have to use group_operator attribut in that specific filed
+............................................................................
+smart button type object and function 
+if we set smart button type object it will call function with name="wrtien name here" in the corossopnding model
+and if we set the button type action it will open the crossopnding xml record
+  
+......//We could also define the average in the view:..........
+<field name="patient_age" avg="Average of Ages"/>
+
+.............................................
+...............print option....................
+print button remove from appoinment form if give menu=false in the report tag
+this option is use full if we have multiple print reports and want to make visble and invisible for some users 
+.................
+what is the meaning of eval=[4,  - In this line what 4 means that?
+It is linking record with another record
+0, 0,  { values })    link to a new record that needs to be created with the given values dictionary
+(1, ID, { values })    update the linked record with id = ID (write values on it)
+(2, ID)                remove and delete the linked record with id = ID (calls unlink on ID, that will delete the object completely, and the link to it as well)
+(3, ID)                cut the link to the linked record with id = ID (delete the relationship between the two objects but does not delete the target object itself)
+(4, ID)                link to existing record with id = ID (adds a relationship)
+(5)                    unlink all (like using (3,ID) for all linked records)
+(6, 0, [IDs])          replace the list of linked IDs (like using (5) then (4,ID) for each ID in the list of IDs)
+
+Explain what the use of all of this. Just little bit confused
+..................................................................
+appointment_id = fields.Many2one('hospital.appointment', string='Appointment ID')
+
+appointment_line = fields.One2many('hospital.appointment.lines', 'appointment_id', string='Appointment lines')
+................................................................................................................
+wizard is popup in odoo and by wizard we arecreating table in database we are storing the data for temprary time
+or for a little time in database
+models.TransientModel makes the data table in data base and that table flashed after some time
+
+.................domain...............................
+in button type object domain': [('name', 'in', self.env.context.get('module_name', []))],
+

@@ -1,0 +1,53 @@
+first of all for making new envoirment i have to go in the directory where i have to make an module
+so there is the key for doing this through terminal 
+
+cd custom/enviorments/programming/flectra/env
+it will take to me env folder where i have to make moduel 
+
+then i have to make virutal enviorment for that module by that command it will create the envoirment and also make the folder of that moduel with its name
+
+virtualenv -p python3 name_of_moduel
+a folder will created with its dependencies 
+
+now we have to activate the our moduel into source file by giving command of 
+
+source name_of_module/bin/activate
+
+now we have to go back in flectra directory and now we for that purpose we use cd .. command
+now we are in flectra folder and have to install its requirements which necsssary for our module 
+we use this command 
+pip3 install -r src/flectra/requirements.txt
+ this will install our requirements in moduel
+ next we have configure our module with flectra
+and if we deactivate our module envoirnment and then again run this command it will install all the lib inthe python 
+
+src/flectra/flectra-bin -sc env/env_learning/config/config.cfg
+then stop it by using ctrl+c command 
+
+ab scaffold cmnd sa moduel bnao apny env k andar addon k folder ma
+
+src/flectra/flectra-bin scaffold learning env/env_learning/addons
+our module is created and now we have to do last which is configure the addon path with config file for that we have to copy the addons file by ctrl+c and paste into the config file after inserting , 
+in addons_path =
+
+after this we have to open the module folder in pycharm and configure it 
+with our module 
+/home/mudassar/custom/enviorments/programming/flectra/src/flectra/flectra-bin
+by giving this script path into pycharm 
+
+and by setting parameter to 
+-c /home/mudassar/custom/enviorments/programming/flectra/env/env_learning/config/config.cfg -u learning
+in this -u means to update the moduel by every time automaticly 
+.........................................................................
+
+https://serpentcs.com/serpentcs-relational-fields-in-openerp-270
+......................................................................
+for copying flectra or odoo src from gitlab
+ git clone -b v1.5.0 https://gitlab.com/flectra-hq/flectra.git
+and where to copy it ..go in that directry left click and open it in terminal
+
+
+
+
+
+
