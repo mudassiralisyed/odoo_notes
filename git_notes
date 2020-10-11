@@ -1,0 +1,17 @@
+git hub command
+first we make a repositry in our github profile 
+and than make .git folder in that specific folder which we want to upload in on github
+git init do this-->by opening in the terminal
+-->git remote add origin https://github.com/mudassiralisyed/odoo_hospital.git
+2.for selecting all file 
+-->git add .
+3.for saving all changes which we have done in code -m for giving message about changes
+-->git commit -m "intial commit"
+4.for pushing our code into origin and master is my branch name
+-->git push origin master
+for checking the status of what changes are made
+-->git status
+for getting the code from origin
+-->git pull origin master
+and for updating the code in origin after make changes 
+we have to repeat 2 ,3 and 4 steps
